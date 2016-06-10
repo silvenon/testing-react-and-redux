@@ -5,21 +5,20 @@ import * as api from 'services/api';
 import { watchToggleTodo } from 'sagas';
 
 test('calls the API function with the payload', t => {
-  // first we create the generator, nothing inside it has been executed yet
+  // first we create the generator, it won't start until we call next()
   const gen = watchToggleTodo();
-  // this way we can assert that the yield block indeed has the expected value
+  // we assert that the yield block indeed has the expected value
   t.deepEqual(
     gen.next().value,
     take(TOGGLE_TODO)
   );
-  // now we assert that the API call has been called with action's payload
   t.deepEqual(
-    // we resolve the previous yield block with an action containing the payload,
-    // I omitted the action type because we are not using it in our saga
-    gen.next({ payload: 3 }).value,
+    // we resolve the previous yield block with the action
+    gen.next({ type: TOGGLE_TODO, payload: 3 }).value,
+    // then we assert that the API call has been called with the ID
     fork(api.toggleTodo, 3)
   );
-  // we assert that the generators keeps looping, which ensures that
-  // the generator receives the TOGGLE_TODO action indefinitely
+  // finally, we assert that the generator keeps looping,
+  // which ensures that the it receives TOGGLE_TODO indefinitely
   t.false(gen.next().done);
 });
