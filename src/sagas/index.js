@@ -1,17 +1,17 @@
 /* eslint-disable no-constant-condition */
 import { take, fork } from 'redux-saga/effects';
-import { DELETE_ITEM } from '../actions';
+import { TOGGLE_TODO } from '../actions';
 import * as api from '../services/api';
 
-export function *watchDeleteItem() {
+export function *watchToggleTodo() {
   while (true) {
-    const { payload } = yield take(DELETE_ITEM);
-    yield fork(api.deleteItem, payload);
+    const { payload } = yield take(TOGGLE_TODO);
+    yield fork(api.toggleTodo, payload);
   }
 }
 
 export default function *rootSaga() {
   yield [
-    fork(watchDeleteItem),
+    fork(watchToggleTodo),
   ];
 }

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import items, * as fromItems from './items';
+import todos from './todos';
 
 export default combineReducers({
-  items,
+  todos,
 });
 
-export const getFirstItem = state => fromItems.getFirstItem(state.items);
+export const getTodos = state => state.todos;

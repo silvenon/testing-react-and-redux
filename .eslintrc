@@ -5,3 +5,5 @@ parserOptions:
     experimentalObjectRestSpread: true
 globals:
   DEV: false
+rules:
+  no-underscore-dangle: 0

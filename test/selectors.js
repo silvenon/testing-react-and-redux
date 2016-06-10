@@ -1,10 +1,11 @@
 import test from 'ava';
-import { getFirstItem } from 'reducers';
+import { getTodos } from 'reducers';
 
-test('getFirstItem', t => {
-  const list = [
-    { id: 1, foo: 'bar' },
-    { id: 2, foo: 'bar' },
+test('getTodos', t => {
+  const todos = [
+    { id: 1, text: 'foo', completed: true },
+    { id: 2, text: 'bar', completed: false },
+    { id: 3, text: 'baz', completed: true },
   ];
-  t.deepEqual(getFirstItem({ list }), list[0]);
+  t.deepEqual(getTodos({ todos }), todos);
 });
