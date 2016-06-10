@@ -1,0 +1,7 @@
+root: true
+extends: airbnb
+parserOptions:
+  ecmaFeatures:
+    experimentalObjectRestSpread: true
+globals:
+  DEV: false

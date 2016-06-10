@@ -1,0 +1,12 @@
+extends: plugin:ava/recommended
+plugins:
+  - ava
+env:
+  browser: false
+settings:
+  import/resolver:
+    node:
+      moduleDirectory:
+        - node_modules
+        - bower_components
+        - src
