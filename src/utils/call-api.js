@@ -1,8 +1,8 @@
 import { camelizeKeys, decamelizeKeys } from 'humps';
 import fetch from 'isomorphic-fetch';
 
-// you can't call that an app if it doesn't have .io in the URL
-export const API_URL = 'https://api.your-app.io';
+// you can't call that an app if it doesn't have .io
+export const API_URL = 'https://api.myapp.io';
 
 export default function callApi(endpoint, method = 'get', body) {
   return fetch(`${API_URL}/${endpoint}`, { // power of template strings
