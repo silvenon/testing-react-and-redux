@@ -4,7 +4,7 @@ import Todo from './Todo';
 import { toggleTodo } from '../actions';
 import { getTodos } from '../reducers';
 
-const TodoList = props => (
+export const TodoList = props => (
   <ul>
     {props.todos.map(todo => (
       <Todo

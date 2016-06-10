@@ -18,7 +18,7 @@ test('sends the body', t => {
   nock(API_URL)
     .post('/foo', body)
     .reply(200, reply);
-  return callApi('foo', body, 'post').then(({ response }) => {
+  return callApi('foo', 'post', body).then(({ response }) => {
     t.deepEqual(response, reply);
   });
 });
@@ -28,7 +28,7 @@ test('decamelizes the body', t => {
   nock(API_URL)
     .post('/foo', { snake_case: 'sssss...' })
     .reply(200, reply);
-  return callApi('foo', { snakeCase: 'sssss...' }).then(({ response }) => {
+  return callApi('foo', 'post', { snakeCase: 'sssss...' }).then(({ response }) => {
     t.deepEqual(response, reply);
   });
 });

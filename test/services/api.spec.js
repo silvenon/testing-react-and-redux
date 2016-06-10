@@ -6,9 +6,10 @@ import * as api from 'services/api';
 test('toggleTodo', t => {
   const reply = { foo: 'bar' };
   nock(API_URL)
-    .post('/items/3/toggle')
+    .post('/todos/3/toggle')
     .reply(200, reply);
-  return api.toggleItem(3).then(({ response }) => {
+  return api.toggleTodo(3).then(({ response, error }) => {
+    t.ifError(error);
     t.deepEqual(response, reply);
   });
 });
