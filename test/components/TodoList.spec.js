@@ -21,8 +21,7 @@ test('lists todos', t => {
 test('toggles the todo', t => {
   const toggleTodo = sinon.spy();
   const todos = [
-    // only one is needed
-    { id: 1, text: 'foo', completed: false },
+    { id: 1, text: 'foo', completed: false }, // only one is needed
   ];
   const wrapper = shallow(
     <TodoList todos={todos} toggleTodo={toggleTodo} />

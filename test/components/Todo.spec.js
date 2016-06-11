@@ -6,16 +6,16 @@ import { shallow } from 'enzyme';
 
 test('outputs the text', t => {
   const wrapper = shallow(
+    // we're passing an empty function just to avoid warnings,
+    // because we specified onClick as a required prop
     <Todo text="foo" completed onClick={() => {}} />
   );
-  // we assert that the textual part of our component contains tood's text
+  // we assert that the textual part of our component contains todo's text
   t.regex(wrapper.render().text(), /foo/);
 });
 
 test('crosses out when completed', t => {
   const wrapper = shallow(
-    // we're passing an empty function just to avoid warnings,
-    // because we specified onClick as a required prop
     <Todo text="foo" completed onClick={() => {}} />
   );
   // this is possible because we're using inline styles
